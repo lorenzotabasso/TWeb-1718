@@ -2,6 +2,7 @@
 Autore: Lorenzo Tabasso, lorenzo-tabasso@edu.unito.it, matricola: 812499
 Esercizio: lab03
 Corso: TWeb 2017-2018
+Curricola: Reti e Sistemi
 Descrizione:
 Contenuto:
 -->
@@ -24,8 +25,8 @@ Contenuto:
 		</div> <!-- Tag banner chiuso -->
 
 		<h1>
-            <?= $titolo ?> (<?= $anno ?>)
-        </h1>
+      <?= $titolo ?> (<?= $anno ?>)
+    </h1>
 
     <div id="areaTotale">
       <div id="areaDestra">
