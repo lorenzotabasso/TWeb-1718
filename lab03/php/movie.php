@@ -37,53 +37,12 @@ Contenuto:
     		<dl>
 
           <?php
-          foreach (file("../{$movie}/info.txt") as $file) {
+          foreach (file("{$movie}/overview.txt") as $file) {
             list ($dettaglio, $contenuto) = explode(":", $file);
           ?>
-          <dt> <? $dettaglio ?> </dt>
-          <dd> <? $contenuto ?> </dd>
+          <dt> <?= $dettaglio ?> </dt>
+          <dd> <?= $contenuto ?> </dd>
           <?php } ?>
-
-    			<dt>STARRING</dt>
-    			<dd>Patrick Stewart <br /> Mako <br /> Sarah Michelle Gellar <br /> Kevin Smith</dd>
-
-    			<dt>DIRECTOR</dt>
-    			<dd>Kevin Munroe</dd>
-
-    			<dt>RATING</dt>
-    			<dd>PG</dd>
-
-    			<dt>THEATRICAL RELEASE</dt>
-    			<dd>Mar 23, 2007</dd>
-
-    			<dt>MOVIE SYNOPSIS</dt>
-    			<dd>After the defeat of their old arch nemesis, The Shredder, the Turtles have grown apart as a family.</dd>
-
-    			<dt>MPAA RATING</dt>
-    			<dd>PG, for animated action violence, some scary cartoon images and mild language</dd>
-
-    			<dt>RELEASE COMPANY</dt>
-    			<dd>Warner Bros.</dd>
-
-    			<dt>RUNTIME</dt>
-    			<dd>90 mins</dd>
-
-    			<dt>GENRE</dt>
-    			<dd>Action/Adventure, Comedies, Childrens, Martial Arts, Superheroes, Ninjas, Animated Characters</dd>
-
-    			<dt>BOX OFFICE</dt>
-    			<dd>$54,132,596</dd>
-
-    			<dt>LINKS</dt>
-    			<dd>
-    				<ul>
-    					<li><a href="http://www.ninjaturtles.com/">The Official TMNT Site</a></li>
-    					<li><a href="http://www.rottentomatoes.com/m/teenage_mutant_ninja_turtles/">RT Review</a></li>
-    					<li><a href="http://www.rottentomatoes.com/">RT Home</a></li>
-    					<li><a href="http://www.cs.washington.edu/190m/">CSE 190 M</a></li>
-    				</ul>
-    			</dd>
-    		</dl>
       </div> <!-- Tag areaDestra chiuso -->
 
       <div id="areaSinistra">
