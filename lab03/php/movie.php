@@ -37,7 +37,7 @@ Contenuto:
     		<dl>
 
           <?php
-          foreach (file("{$movie}/overview.txt") as $file) {
+          foreach (file("../{$movie}/overview.txt") as $file) {
             list ($dettaglio, $contenuto) = explode(":", $file);
           ?>
           <dt> <?= $dettaglio ?> </dt>
