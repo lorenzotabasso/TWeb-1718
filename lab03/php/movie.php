@@ -16,17 +16,16 @@ Contenuto:
 	</head>
 
 	<body>
-    <?php $movie=$_GET["film"]; ?> <!-- Variabile in cui inserisco la cartella tramite URL -->
+    <?php $movie=$_GET["film"]; # Variabile in cui inserisco la cartella tramite URL
+      list ($titolo, $anno, $valutazione) = file("../$movie/info.txt",FILE_IGNORE_NEW_LINES);
+    ?>
 		<div id="banner">
 			<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/banner.png" alt="Rancid Tomatoes"/>
 		</div> <!-- Tag banner chiuso -->
 
 		<h1>
-      <?php
-        $titolo = file("../{$movie}/info.txt",FILE_IGNORE_NEW_LINES);
-        echo $titolo[0];
-      ?>
-    </h1>
+            <?= $titolo ?> (<?= $anno ?>)
+        </h1>
 
     <div id="areaTotale">
       <div id="areaDestra">
