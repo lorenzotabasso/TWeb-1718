@@ -48,7 +48,7 @@ Contenuto:
       <div id="areaSinistra">
     		<div id="classifica">
     			<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rottenbig.png" alt="Rotten" />
-    			33%
+    			<?= $valutazione ?>%
     		</div> <!-- Tag classifica chiuso -->
 
         <div id="recensioniSX">
