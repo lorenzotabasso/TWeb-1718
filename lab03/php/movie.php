@@ -62,11 +62,45 @@ Contenuto:
     			<?= $valutazione ?>%
     		</div> <!-- Tag classifica chiuso -->
 
-        <div id="recensioniSX">
-          <?php
+        <?php /*
+          $r = glob("review*.txt");
+          $reviewCounter=0;
+          for($i=0; $i<$r; $i++){
+            $reviewCounter=$i;
+          } */
+         ?>
 
+        <div id="recensioniSX">
+          <?php /*
+            for ($j=0;$j < $reviewCounter/2; $j++) {
+              $singleReview = file("../{$movie}/review{$numero}.txt");
+              list ($testo, $recensione, $autore, $testata) = explode("\n", $singleReview);
+              ?>
+              <p class="boxRecensione">
+                <?php
+                  if($recensione == "FRESH"){
+                    ?>
+                      <img src="http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/fresh.gif" alt="Rotten" />
+                    <?php
+                  }
+                  else {
+                    ?>
+                      <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
+                    <?php
+                  }
+                  ?>
+
+            	  <q><?=$testo?></q>
+            	</p>
+            	<p class="autore">
+            		<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/critic.gif" alt="Critic" />
+            		<?=$autore?> <br/>
+            		<?=$testata?>
+            	</p>
+            <?php }
+            */
           ?>
-          
+
         	<p class="boxRecensione">
         		<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
         	  <q>Ditching the cheeky, self-aware wink that helped to excuse the concept's inherent corniness, the movie attempts to look polished and 'cool,' but the been-there animation can't compete with the then-cutting-edge puppetry of the 1990 live-action movie.</q>
