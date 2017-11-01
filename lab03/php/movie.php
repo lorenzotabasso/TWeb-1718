@@ -47,7 +47,18 @@ Contenuto:
 
       <div id="areaSinistra">
     		<div id="classifica">
-    			<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rottenbig.png" alt="Rotten" />
+          <?php
+            if($valutazione < 60){
+              ?>
+                <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rottenbig.png" alt="Rotten" />
+              <?php
+            }
+            else {
+              ?>
+                <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/freshbig.png" alt="Fresh" />
+              <?php
+            }
+          ?>
     			<?= $valutazione ?>%
     		</div> <!-- Tag classifica chiuso -->
 
