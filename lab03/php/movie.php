@@ -31,11 +31,10 @@ Contenuto:
     <div id="areaTotale">
       <div id="areaDestra">
     		<div>
-    			<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/overview.png" alt="general overview" />
+    			<img src="../<?=$movie?>/overview.png" alt="general overview" />
     		</div>
 
     		<dl>
-
           <?php
           foreach (file("../{$movie}/overview.txt") as $file) {
             list ($dettaglio, $contenuto) = explode(":", $file);
@@ -43,6 +42,7 @@ Contenuto:
           <dt> <?= $dettaglio ?> </dt>
           <dd> <?= $contenuto ?> </dd>
           <?php } ?>
+        </dl>
       </div> <!-- Tag areaDestra chiuso -->
 
       <div id="areaSinistra">
@@ -63,6 +63,10 @@ Contenuto:
     		</div> <!-- Tag classifica chiuso -->
 
         <div id="recensioniSX">
+          <?php
+
+          ?>
+          
         	<p class="boxRecensione">
         		<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
         	  <q>Ditching the cheeky, self-aware wink that helped to excuse the concept's inherent corniness, the movie attempts to look polished and 'cool,' but the been-there animation can't compete with the then-cutting-edge puppetry of the 1990 live-action movie.</q>
