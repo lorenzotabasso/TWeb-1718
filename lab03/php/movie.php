@@ -36,9 +36,9 @@ Contenuto: Codice sorgente HTML e PHP del compito.
     			<img src="../<?=$movie?>/overview.png" alt="general overview" />
     		</div>
 
-    		<dl>
+    		<dl> <!-- Intestazione Overview-->
 
-          <?php
+          <?php # recupero titoli in grassetto e testo sotto i titoli
             foreach (file("../{$movie}/overview.txt") as $file) {
               list ($dettaglio, $contenuto) = explode(":", $file);
           ?>
@@ -47,16 +47,16 @@ Contenuto: Codice sorgente HTML e PHP del compito.
           <dd> <?= $contenuto ?> </dd>
 
           <?php
-        } # foreach chiuso
+            } # foreach chiuso
           ?>
 
-        </dl>
+        </dl> <!-- Intestazione Overview chiusa-->
       </div> <!-- Tag areaDestra chiuso -->
 
       <div id="areaSinistra">
     		<div id="classifica">
 
-          <?php
+          <?php # se la valutazione supera 60%, il film è FRESH, altrimenti è ROTTEN
             if($valutazione < 60){
               ?>
                 <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rottenbig.png" alt="Rotten" />
@@ -69,12 +69,11 @@ Contenuto: Codice sorgente HTML e PHP del compito.
             } # branch else chiuso
           ?>
 
-    			<?= $valutazione ?>%
+    			<?= $valutazione ?>% <!-- output della valutazione sullo schermo-->
 
     		</div> <!-- Tag classifica chiuso -->
 
-        <?php
-          # codice per l'area delle recensioni
+        <?php # Inizio codice per l'area delle recensioni
 
           $reviews = glob("../{$movie}/review*.txt");
           $reviewCounter = counterMax10($reviews);
@@ -92,7 +91,7 @@ Contenuto: Codice sorgente HTML e PHP del compito.
         ?>
 
         <div id="recensioniSX">
-
+          <!-- Codice PHP (di seguito) per la colonna sinistra delle recensioni-->
           <?php
             for($i=0; $i < $halfCounter; $i++){
               $singleReview = file($reviews[$i], FILE_IGNORE_NEW_LINES);
@@ -120,10 +119,11 @@ Contenuto: Codice sorgente HTML e PHP del compito.
                 </p>
             <?php
             } # END FOR
-          ?>
+          ?> <!-- END PHP area recensioniSX-->
         </div> <!-- Tag recensioniSX chiuso -->
 
         <div id="recensioniDX">
+          <!-- Codice PHP (di seguito) per la colonna destra delle recensioni-->
           <?php
             for($j=$halfCounter; $j < $reviewCounter; $j++){
               $singleReview = file($reviews[$j], FILE_IGNORE_NEW_LINES);
@@ -151,7 +151,7 @@ Contenuto: Codice sorgente HTML e PHP del compito.
                 </p>
             <?php
             } # END FOR
-          ?>
+          ?> <!-- END PHP area recensioniDX-->
         </div> <!-- Tag recensioniDX chiuso -->
       </div> <!-- Tag areaSinistra chiuso -->
 
