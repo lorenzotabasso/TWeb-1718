@@ -1,13 +1,10 @@
 /*
-Autore: Lorenzo Tabasso, lorenzo-tabasso@edu.unito.it, matricola: 812499
-Esercizio: lab02
+Autore: Lorenzo Tabasso, lorenzo.tabasso@edu.unito.it, matricola: 812499
+Esercizio: lab03
 Corso: TWeb 2017-2018
-Descrizione: Dato lo skeleton del sito "TMNT - Rancid Tomatoes", ristrutturare lo stile del documento
-              seguendo le indicazioni fornite per questo specifico compito. Nota: modificare il meno
-              possibile il file tmnt.html, e lavorare quanto più possibile sul file movie.css .
-              E' concessa l'aggiunta nel file html di opportuni tag <div>, <span>, e delle
-              proprietà id e class.
-Contenuto: il sorgente del foglio di stile CSS della pagina web "TMNT - Rancid Tomatoes".
+Curricola: Reti e Sistemi
+Descrizione: Implementazione del codice PHP all'interno della pagina web Rancid Tomatoes.
+Contenuto: Codice sorgente CSS per il file "movie.php"
 */
 
 body {
