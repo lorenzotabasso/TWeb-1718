@@ -66,69 +66,38 @@ Contenuto:
           $reviews = glob("../{$movie}/review*.txt");
           $counter = count($reviews);
           $halfCounter = intval($counter/2);
+
         ?>
+          <div id="recensioniSX">
+        <?php
+          for($i=$halfCounter; $i > 0; $i--){
+            $singleReview = file($reviews[$i], FILE_IGNORE_NEW_LINES);
 
-        <div id="recensioniSX">
-          <?php
-            for($i=0; $i < $halfCounter; $i++){
-              $singleReview = file($reviews[$i], FILE_IGNORE_NEW_LINES);
-
-          ?>
-                  <p class="boxRecensione">
-          <?php
-                      if($singleReview[1] == "FRESH"){
-          ?>
-                        <img src="http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/fresh.gif" alt="Fresh" />
-          <?php
-                      }
-                      else {
-          ?>
-                          <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
-          <?php
-                      }
-          ?>
-                    <q><?=$singleReview[0]?></q>
-                  </p>
-                  <p class="autore">
-                    <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/critic.gif" alt="Critic" />
-                    <?=$singleReview[2]?> <br/>
-                    <?=$singleReview[3]?>
-                  </p>
-          <?php
-            }
-          ?>
-        </div> <!-- Tag recensioniSX chiuso -->
-
-        <div id="recensioniDX">
-          <?php
-            for($j=$halfCounter; $j < $counter; $j++){
-              $singleReview = file($reviews[$j], FILE_IGNORE_NEW_LINES);
-
-          ?>
-                  <p class="boxRecensione">
-          <?php
-                      if($singleReview[1] == "FRESH"){
-          ?>
-                        <img src="http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/fresh.gif" alt="Fresh" />
-          <?php
-                      }
-                      else {
-          ?>
-                          <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
-          <?php
-                      }
-          ?>
-                    <q><?=$singleReview[0]?></q>
-                  </p>
-                  <p class="autore">
-                    <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/critic.gif" alt="Critic" />
-                    <?=$singleReview[2]?> <br/>
-                    <?=$singleReview[3]?>
-                  </p>
-          <?php
-            }
-          ?>
-        </div> <!-- Tag recensioniDX chiuso -->
+        ?>
+                <p class="boxRecensione">
+        <?php
+                    if($singleReview[1] == "FRESH"){
+        ?>
+                      <img src="http://courses.cs.washington.edu/courses/cse190m/11sp/homework/2/fresh.gif" alt="Fresh" />
+        <?php
+                    }
+                    else {
+        ?>
+                        <img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/rotten.gif" alt="Rotten" />
+        <?php
+                    }
+        ?>
+              	  <q><?=$singleReview[0]?></q>
+              	</p>
+              	<p class="autore">
+              		<img src="http://www.cs.washington.edu/education/courses/cse190m/11sp/homework/2/critic.gif" alt="Critic" />
+              		<?=$singleReview[2]?> <br/>
+              		<?=$singleReview[3]?>
+              	</p>
+        <?php
+          }
+        ?>
+      </div> <!-- Tag recensioniSX chiuso -->
       </div> <!-- Tag areaSinistra chiuso -->
 
     <div id="numeroRecensioni">
