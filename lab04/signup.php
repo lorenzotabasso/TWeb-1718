@@ -55,7 +55,9 @@
                 </label>
             </li>
             <li>
+                <label>
                     <input type="submit" value="Sign Up">
+                </label>
             </li>
         </ul>
     </fieldset>
