@@ -12,33 +12,34 @@
 
 <form action="signup-submit.php" method="post" enctype="multipart/form-data">
     <fieldset>
+        <legend>New User Signup:</legend>
         <ul>
             <li>
                 <label>
-                    Name: <input type="text" name="name" size="10" maxlength="8">
+                    <strong>Name:</strong> <input type="text" name="name" size="10" maxlength="8">
                 </label>
             </li>
             <li>
                 <label>
-                    Gender:
+                    <strong>Gender:</strong>
                     <input type="radio" name="gender" value="Male"> Male
                     <input type="radio" name="gender" value="Female" checked="checked"> Female
                 </label>
             </li>
             <li>
                 <label>
-                    Age: <input type="text" name="age" size="6" maxlength="2">
+                    <strong>Age:</strong> <input type="text" name="age" size="6" maxlength="2">
                 </label>
             </li>
             <li>
                 <label>
-                    Personality Type: <input type="text" name="personality" size="6" maxlength="4">
+                    <strong>Personality Type:</strong> <input type="text" name="personality" size="6" maxlength="4">
                     (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)
                 </label>
             </li>
             <li>
                 <label>
-                    Favorite OS:
+                    <strong>Favorite OS:</strong>
                     <select name="favoriteOS">
                         <option>Windows</option>
                         <option>Mac OS X</option>
@@ -48,15 +49,13 @@
             </li>
             <li>
                 <label>
-                    Seeking Age:
-                    <textarea rows="1" cols="6" name="fromAge" maxlength="2"> Age </textarea> to
-                    <textarea rows="1" cols="6" name="toAge" maxlength="2"> Age </textarea>
+                    <strong>Seeking Age:</strong>
+                    <input type="text" name="minAge" size="6" maxlength="2" placeholder="min"> to
+                    <input type="text" name="maxAge" size="6" maxlength="2" placeholder="max">
                 </label>
             </li>
             <li>
-                <label>
                     <input type="submit" value="Sign Up">
-                </label>
             </li>
         </ul>
     </fieldset>

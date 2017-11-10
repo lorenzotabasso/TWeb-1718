@@ -18,10 +18,10 @@ $gender = $_REQUEST["gender"];
 $age = $_REQUEST["age"];
 $personality = $_REQUEST["personality"];
 $favoriteOS = $_REQUEST["favoriteOS"];
-$fromAge = $_REQUEST["fromAge"];
-$toAge = $_REQUEST["toAge"];
+$minAge = $_REQUEST["minAge"];
+$maxAge = $_REQUEST["maxAge"];
 
-$newLine = "$name,$gender,$age,$personality,$favoriteOS,$fromAge,$toAge";
+$newLine = "$name,$gender,$age,$personality,$favoriteOS,$minAge,$maxAge";
 file_put_contents("singles.txt", $newLine, FILE_APPEND);
 
 
