@@ -10,12 +10,12 @@
  */
 ?>
 
-<form action="signup-submit.php">
+<form action="signup-submit.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <ul>
             <li>
                 <label>
-                    Name: <input type="text" size="10" maxlength="8">
+                    Name: <input type="text" name="name" size="10" maxlength="8">
                 </label>
             </li>
             <li>
@@ -27,12 +27,12 @@
             </li>
             <li>
                 <label>
-                    Age: <input type="text" size="6" maxlength="2">
+                    Age: <input type="text" name="age" size="6" maxlength="2">
                 </label>
             </li>
             <li>
                 <label>
-                    Personality Type: <input type="text" size="6" maxlength="4">
+                    Personality Type: <input type="text" name="personality" size="6" maxlength="4">
                     (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)
                 </label>
             </li>
@@ -49,8 +49,8 @@
             <li>
                 <label>
                     Seeking Age:
-                    <textarea rows="1" cols="6" maxlength="2"> Age </textarea> to
-                    <textarea rows="1" cols="6" maxlength="2"> Age </textarea>
+                    <textarea rows="1" cols="6" name="fromAge" maxlength="2"> Age </textarea> to
+                    <textarea rows="1" cols="6" name="toAge" maxlength="2"> Age </textarea>
                 </label>
             </li>
             <li>

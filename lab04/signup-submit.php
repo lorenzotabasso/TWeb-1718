@@ -1,3 +1,5 @@
+<?php include("top.html"); ?>
+
 <?php
 /**
  * Author: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
@@ -7,6 +9,26 @@
  * Contenuto:
  */
 
+/* Campi passati tramite il metodo POST a questa pagina,
+da inserire nel file singles.txt
+*/
+
+$name = $_REQUEST["name"];
+$gender = $_REQUEST["gender"];
+$age = $_REQUEST["age"];
+$personality = $_REQUEST["personality"];
+$favoriteOS = $_REQUEST["favoriteOS"];
+$fromAge = $_REQUEST["fromAge"];
+$toAge = $_REQUEST["toAge"];
+
+$newLine = "$name,$gender,$age,$personality,$favoriteOS,$fromAge,$toAge";
+file_put_contents("singles.txt", $newLine, FILE_APPEND);
+
+
 ?>
+
+<h1>Thank you!</h1>
+<p>Welcome to NerdLuv, <?=$name?>!</p>
+<p>Now <a href="matches.php">log in to see your matches!</a></p>
 
 <?php include("bottom.html"); ?>
