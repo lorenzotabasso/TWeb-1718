@@ -2,17 +2,14 @@
 
 <?php
 /**
- * Author: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
+ * Authore: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
  * Esercizio:
  * Corso: TWeb 2017-2018
  * Descrizione: la pagina che riceve i dati inviati da signup.php e che effettivamente registra l'account del nuovo utente.
  * Contenuto:
  */
 
-/* Campi passati tramite il metodo POST a questa pagina,
-da inserire nel file singles.txt
-*/
-
+# Campi passati tramite il metodo POST a questa pagina, verranno inseriti nel file singles.txt
 $name = $_REQUEST["name"];
 $gender = $_REQUEST["gender"];
 $age = $_REQUEST["age"];
@@ -23,7 +20,6 @@ $maxAge = $_REQUEST["maxAge"];
 
 $newLine = "$name,$gender,$age,$personality,$favoriteOS,$minAge,$maxAge";
 file_put_contents("singles.txt", $newLine, FILE_APPEND);
-
 
 ?>
 
