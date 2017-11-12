@@ -3,10 +3,9 @@
 <?php
 /**
  * Authore: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
- * Esercizio:
+ * Esercizio: lab04
  * Corso: TWeb 2017-2018
  * Descrizione: la pagina che riceve i dati inviati da signup.php e che effettivamente registra l'account del nuovo utente.
- * Contenuto:
  */
 
 # Campi passati tramite il metodo POST a questa pagina, verranno inseriti nel file singles.txt
