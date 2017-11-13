@@ -44,20 +44,95 @@ $name = $_REQUEST["name"];
 //    #echo $datoNellaRiga[0];
 //}
 
-$user=array();
+// VERSIONE ANDRE
+//$user=array();
+//
+//foreach($line as $nerd) {
+//    $user = explode(",", $nerd);
+//
+//    if($user[0]==$name) {
+//        break;
+//    }
+//
+//
+//    //display dato
+//    #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
+//    #echo [$riga]['name'];
+//    #echo $datoNellaRiga[0];
+//}
 
-foreach($line as $nerd) {
-    $user = explode(",", $nerd);
+$lines = file("singles.txt");
+foreach ($lines as $line) {
+    $user1 = explode(",", $line);
+    $name1 = $user1[0];
+    if($name == $name1){
+        $gender = $user1[1];
+        $age = $user1[2];
+        $personality = $user1[3];
+        $favoriteOS = $user1[4];
+        $minAge = $user1[5];
+        $maxAge = $user1[6];
+    }
+}
 
-    if($user[0]==$name) {
-        break;
+foreach ($lines as $line) {
+    $user2 = explode(",", $line);
+    $name2 = $user2[0];
+    $gender2 = $user2[1];
+    $age2 = $user2[2];
+    $personality2 = $user2[3];
+    $favoriteOS2 = $user2[4];
+    $minAge2 = $user2[5];
+    $maxAge2 = $user2[6];
+
+    if (confront($user1,$user2)){
+
+    }
+}
+
+function confront($user1, $user2){
+    /* 0 = name
+     * 1 = gender
+     * 2 = age
+     * 3 = personality
+     * 4 = favoriteOS
+     * 5 = minAge
+     * 6 = maxAge
+     */
+    $result = 0; #numero parametri true totali = 6!!
+
+    #confronto il nome
+    if($user1[0] != $user2[0]){
+        $result++;
     }
 
+    #confronto genere
+    else if ($user1[1] != $user2[1]){
+        $result++;
+    }
 
-    //display dato
-    #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
-    #echo [$riga]['name'];
-    #echo $datoNellaRiga[0];
+    #confronto la personalità
+    else if ($user1[3] == $user2[3]){
+        $result++;
+    }
+
+    #confronto il favoriteOS
+    else if ($user1[4] != $user2[4]){
+        $result++;
+    }
+
+    #controllo se l'età dell'utente 2 rientra nelle preferenze dell'utente 1
+    else if ($user1[5] <= $user2[2] && $user1[6] >= $user2[2]){
+        $result++;
+    }
+
+    #confronto finale, se tutto va bene.
+    else if ($result == 6){
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 ?>
