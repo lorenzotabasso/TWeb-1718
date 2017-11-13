@@ -31,22 +31,25 @@ function findUser($name){
         if (confront($user1, $user2) == true) {
             ?>
             <div class="match">
-                <p><?=$user2[0]?></p>
                 <img src="http://www.cs.washington.edu/education/courses/cse190m/12sp/homework/4/user.jpg">
-                <ul>
-                    <li>
-                        Gender: <?=$user2[1]?>
-                    </li>
-                    <li>
-                        Age: <?=$user2[2]?>
-                    </li>
-                    <li>
-                        Personality: <?=$user2[3]?>
-                    </li>
-                    <li>
-                        OS: <?=$user2[4]?>
-                    </li>
-                </ul>
+                <div class="match">
+                    <p><?=$user2[0]?></p>
+                </div>
+                    <ul>
+                        <li>
+                            <strong>gender:</strong> <?=$user2[1]?>
+                        </li>
+                        <li>
+                            <strong>age:</strong> <?=$user2[2]?>
+                        </li>
+                        <li>
+                            <strong>personality:</strong> <?=$user2[3]?>
+                        </li>
+                        <li>
+                            <strong>OS:</strong> <?=$user2[4]?>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <?php
         }
