@@ -9,6 +9,7 @@
  */
 ?>
 
+<!-- FORM di Signup -->
 <form action="signup-submit.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>New User Signup:</legend>

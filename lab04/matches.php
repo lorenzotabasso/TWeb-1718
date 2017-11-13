@@ -10,6 +10,7 @@
 
 ?>
 
+    <!-- FORM per iniziare il Match -->
 <form action="matches-submit.php" method="get" enctype="multipart/form-data">
     <fieldset>
         <legend>Returning User:</legend>

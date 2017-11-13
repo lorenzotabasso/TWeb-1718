@@ -12,8 +12,7 @@
 $name = $_REQUEST["name"];
 $lines = file("singles.txt");
 
-
-
+#Funzione che dato il nome di uno User ci trova tutti i Nerd affini e li stampa a video
 function findUser($name){
     global $name;
     global $lines;
@@ -56,6 +55,7 @@ function findUser($name){
     }
 }
 
+# Funzione che confronta 2 Nerd, ritorna TRUE se i 2 nerd sono compatibili, FALSE altrimenti.
 function confront($user1, $user2){
     list($user1Name, $user1Gender, $user1Age, $user1Personality, $user1FavOS, $user1MinAge, $user1MaxAge) = $user1;
     list($user2Name, $user2Gender, $user2Age, $user2Personality, $user2FavOS, $user2MinAge, $user2MaxAge) = $user2;
@@ -80,6 +80,8 @@ function confront($user1, $user2){
     return false;
 }
 
+# Funzione che confronta 2 tipi di personalità. ritorna TRUE se almeno 1 lettera delle 4 della
+# prima personalità è uguale alla lettera nella stessa posizione nelal seconda. FALSE alteimenti.
 function confrontPersonality($personality1, $personality2){
     list($p1l1, $p1l2, $p1l3, $p1l4) = $personality1;
     list($p2l1, $p2l2, $p2l3, $p2l4) = $personality2;
