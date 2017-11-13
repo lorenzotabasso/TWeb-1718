@@ -13,7 +13,7 @@
     <fieldset>
         <legend>New User Signup:</legend>
         <ul>
-            <li>
+            <li> <!-- TODO: togliere LABEL (tranne checkbox)-->
                 <label>
                     <strong>Name:</strong> <input type="text" name="name" size="10" maxlength="8">
                 </label>

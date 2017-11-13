@@ -11,31 +11,48 @@
 # Campi passati tramite il metodo GET a questa pagina
 $name = $_REQUEST["name"];
 
-$FILE = file_get_contents("singles.txt");
-$righeFile = explode("\n", $FILE);
+// 1° VERSIONE
+//$FILE = file_get_contents("singles.txt");
+//$righeFile = explode("\n", $FILE);
+//
+//foreach($righeFile as $riga => $dato)
+//{
+//    //get riga dato
+//    $datoNellaRiga = explode(',', $dato);
+//    /* 0 = name
+//     * 1 = gender
+//     * 2 = age
+//     * 3 = personality
+//     * 4 = favoriteOS
+//     * 5 = minAge
+//     * 6 = maxAge
+//     *
+//     * $datoNellaRiga[0] = "Ada Lovelace"
+//     */
+//
+//    $info[$riga]['nome'] = $datoNellaRiga[0];
+//    $info[$riga]['gender'] = $datoNellaRiga[1];
+//    $info[$riga]['age'] = $datoNellaRiga[2];
+//    $info[$riga]['personality'] = $datoNellaRiga[3];
+//    $info[$riga]['favoriteOS'] = $datoNellaRiga[4];
+//    $info[$riga]['minAge'] = $datoNellaRiga[5];
+//    $info[$riga]['maxAge'] = $datoNellaRiga[6];
+//
+//    //display dato
+//    #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
+//    #echo [$riga]['name'];
+//    #echo $datoNellaRiga[0];
+//}
 
-foreach($righeFile as $riga => $dato)
-{
-    //get riga dato
-    $datoNellaRiga = explode(',', $dato);
-    /* 0 = name
-     * 1 = gender
-     * 2 = age
-     * 3 = personality
-     * 4 = favoriteOS
-     * 5 = minAge
-     * 6 = maxAge
-     *
-     * $datoNellaRiga[0] = "Ada Lovelace"
-     */
+$user=array();
 
-    $info[$riga]['nome'] = $datoNellaRiga[0];
-    $info[$riga]['gender'] = $datoNellaRiga[1];
-    $info[$riga]['age'] = $datoNellaRiga[2];
-    $info[$riga]['personality'] = $datoNellaRiga[3];
-    $info[$riga]['favoriteOS'] = $datoNellaRiga[4];
-    $info[$riga]['minAge'] = $datoNellaRiga[5];
-    $info[$riga]['maxAge'] = $datoNellaRiga[6];
+foreach($line as $nerd) {
+    $user = explode(",", $nerd);
+
+    if($user[0]==$name) {
+        break;
+    }
+
 
     //display dato
     #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
