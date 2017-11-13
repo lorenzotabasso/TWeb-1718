@@ -10,136 +10,88 @@
 
 # Campi passati tramite il metodo GET a questa pagina
 $name = $_REQUEST["name"];
-
-// 1° VERSIONE
-//$FILE = file_get_contents("singles.txt");
-//$righeFile = explode("\n", $FILE);
-//
-//foreach($righeFile as $riga => $dato)
-//{
-//    //get riga dato
-//    $datoNellaRiga = explode(',', $dato);
-//    /* 0 = name
-//     * 1 = gender
-//     * 2 = age
-//     * 3 = personality
-//     * 4 = favoriteOS
-//     * 5 = minAge
-//     * 6 = maxAge
-//     *
-//     * $datoNellaRiga[0] = "Ada Lovelace"
-//     */
-//
-//    $info[$riga]['nome'] = $datoNellaRiga[0];
-//    $info[$riga]['gender'] = $datoNellaRiga[1];
-//    $info[$riga]['age'] = $datoNellaRiga[2];
-//    $info[$riga]['personality'] = $datoNellaRiga[3];
-//    $info[$riga]['favoriteOS'] = $datoNellaRiga[4];
-//    $info[$riga]['minAge'] = $datoNellaRiga[5];
-//    $info[$riga]['maxAge'] = $datoNellaRiga[6];
-//
-//    //display dato
-//    #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
-//    #echo [$riga]['name'];
-//    #echo $datoNellaRiga[0];
-//}
-
-// VERSIONE ANDRE
-//$user=array();
-//
-//foreach($line as $nerd) {
-//    $user = explode(",", $nerd);
-//
-//    if($user[0]==$name) {
-//        break;
-//    }
-//
-//
-//    //display dato
-//    #echo "riga".$riga .'Name: '.$info[$riga]['name'].'<br />';
-//    #echo [$riga]['name'];
-//    #echo $datoNellaRiga[0];
-//}
-
 $lines = file("singles.txt");
-foreach ($lines as $line) {
-    $user1 = explode(",", $line);
-    $name1 = $user1[0];
-    if($name == $name1){
-        $gender = $user1[1];
-        $age = $user1[2];
-        $personality = $user1[3];
-        $favoriteOS = $user1[4];
-        $minAge = $user1[5];
-        $maxAge = $user1[6];
+
+
+
+function findUser($name){
+    global $name;
+    global $lines;
+    $user1 = array();
+
+    foreach ($lines as $line){
+        $user = explode(",", $line);
+        if (strcmp($user[0],$name) == 0){
+            $user1 = $user;
+        }
     }
-}
 
-foreach ($lines as $line) {
-    $user2 = explode(",", $line);
-    $name2 = $user2[0];
-    $gender2 = $user2[1];
-    $age2 = $user2[2];
-    $personality2 = $user2[3];
-    $favoriteOS2 = $user2[4];
-    $minAge2 = $user2[5];
-    $maxAge2 = $user2[6];
-
-    if (confront($user1,$user2)){
-
+    foreach ($lines as $line){
+        $user2 = explode(",", $line);
+        if (confront($user1, $user2) == true) {
+            ?>
+            <div class="match">
+                <p><?=$user2[0]?></p>
+                <img src="http://www.cs.washington.edu/education/courses/cse190m/12sp/homework/4/user.jpg">
+                <ul>
+                    <li>
+                        Gender: <?=$user2[1]?>
+                    </li>
+                    <li>
+                        Age: <?=$user2[2]?>
+                    </li>
+                    <li>
+                        Personality: <?=$user2[3]?>
+                    </li>
+                    <li>
+                        OS: <?=$user2[4]?>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }
     }
 }
 
 function confront($user1, $user2){
-    /* 0 = name
-     * 1 = gender
-     * 2 = age
-     * 3 = personality
-     * 4 = favoriteOS
-     * 5 = minAge
-     * 6 = maxAge
-     */
-    $result = 0; #numero parametri true totali = 6!!
+    list($user1Name, $user1Gender, $user1Age, $user1Personality, $user1FavOS, $user1MinAge, $user1MaxAge) = $user1;
+    list($user2Name, $user2Gender, $user2Age, $user2Personality, $user2FavOS, $user2MinAge, $user2MaxAge) = $user2;
 
-    #confronto il nome
-    if($user1[0] != $user2[0]){
-        $result++;
-    }
+    #confronto il genere, se diverso, entro nell'if, altrimenti ritorno FALSE;
+    if ($user1Gender != $user2Gender){
 
-    #confronto genere
-    else if ($user1[1] != $user2[1]){
-        $result++;
-    }
+        #confronto l'età compatibile, se tra il minimo e il massimo, entro nell'if, altrimenti, ritorno FALSE;
+        if ($user1MinAge <= $user2Age && $user1MaxAge >= $user2Age){
 
-    #confronto la personalità
-    else if ($user1[3] == $user2[3]){
-        $result++;
+            #confronto il Sistema operativo, se è lo stesso, entro nell'if, altrimenti, ritorno FALSE;
+            if ($user1FavOS == $user2FavOS){
+
+                #controllo se l'età dell'utente 2 rientra nelle preferenze dell'utente 1
+                if (confrontPersonality($user1Personality, $user2Personality) == true){
+                    return true;
+                }
+            }
+        }
     }
 
-    #confronto il favoriteOS
-    else if ($user1[4] != $user2[4]){
-        $result++;
-    }
+    return false;
+}
 
-    #controllo se l'età dell'utente 2 rientra nelle preferenze dell'utente 1
-    else if ($user1[5] <= $user2[2] && $user1[6] >= $user2[2]){
-        $result++;
-    }
-
-    #confronto finale, se tutto va bene.
-    else if ($result == 6){
-        return true;
-    }
-    else {
-        return false;
-    }
+function confrontPersonality($personality1, $personality2){
+    list($p1l1, $p1l2, $p1l3, $p1l4) = $personality1;
+    list($p2l1, $p2l2, $p2l3, $p2l4) = $personality2;
+    if($p1l1 == $p2l1) { return true; }
+    else if($p1l2 == $p2l2) { return true; }
+    else if($p1l3 == $p2l3) { return true; }
+    else if($p1l4 == $p2l4) { return true; }
+    else { return false; }
 }
 
 ?>
 
 <h1>Matches for <?=$name?></h1>
 <?php
-#echo $datoNellaRiga[0];
+findUser($name);
 ?>
 
 <?php include("bottom.html"); ?>

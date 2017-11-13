@@ -14,9 +14,7 @@
         <legend>New User Signup:</legend>
         <ul>
             <li> <!-- TODO: togliere LABEL (tranne checkbox)-->
-                <label>
-                    <strong>Name:</strong> <input type="text" name="name" size="10" maxlength="8">
-                </label>
+                <strong>Name:</strong> <input type="text" name="name" size="10" maxlength="8">
             </li>
             <li>
                 <label>
@@ -26,15 +24,11 @@
                 </label>
             </li>
             <li>
-                <label>
-                    <strong>Age:</strong> <input type="text" name="age" size="6" maxlength="2">
-                </label>
+                <strong>Age:</strong> <input type="text" name="age" size="6" maxlength="2">
             </li>
             <li>
-                <label>
-                    <strong>Personality Type:</strong> <input type="text" name="personality" size="6" maxlength="4">
-                    (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)
-                </label>
+                <strong>Personality Type:</strong> <input type="text" name="personality" size="6" maxlength="4">
+                (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)
             </li>
             <li>
                 <label>
@@ -47,16 +41,12 @@
                 </label>
             </li>
             <li>
-                <label>
-                    <strong>Seeking Age:</strong>
-                    <input type="text" name="minAge" size="6" maxlength="2" placeholder="min"> to
-                    <input type="text" name="maxAge" size="6" maxlength="2" placeholder="max">
-                </label>
+                <strong>Seeking Age:</strong>
+                <input type="text" name="minAge" size="6" maxlength="2" placeholder="min"> to
+                <input type="text" name="maxAge" size="6" maxlength="2" placeholder="max">
             </li>
             <li>
-                <label>
-                    <input type="submit" value="Sign Up">
-                </label>
+                <input type="submit" value="Sign Up">
             </li>
         </ul>
     </fieldset>
