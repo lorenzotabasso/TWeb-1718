@@ -1,10 +1,3 @@
-<!--
-Authore: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
-Esercizio:
-Corso:
-Descrizione:
--->
-
 <?php include("top.html"); ?>
 
 <h1>The One Degree of Kevin Bacon</h1>
