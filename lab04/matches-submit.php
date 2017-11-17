@@ -34,6 +34,7 @@ function findUser($name){
                 <div class="match">
                     <p><?=$user2[0]?></p>
                 </div>
+                <div>
                     <ul>
                         <li>
                             <strong>gender:</strong> <?=$user2[1]?>
