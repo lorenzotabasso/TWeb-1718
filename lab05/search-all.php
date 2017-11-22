@@ -8,15 +8,17 @@
 
 try {
     # connect to world database on local server
-    $db = new PDO("mysql:dbname=world;host=localhost", "root", "root");
+    $db = new PDO("mysql:dbname=imdb_small; host=localhost", "root", "root");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $firstname = $_GET["firstname"];
+    $firstname = $_REQUEST["firstname"];
     $firstnamePerQuery = $db->quote($firstname);
-    $lastname = $_GET["lastname"];
+    $lastname = $_REQUEST["lastname"];
     $lastnamePerQuery = $db->quote($lastname);
 
-    $rows = $db->query("SELECT M.name, M.year FROM movies M JOIN roles R ON M.id = R.movie_id JOIN actors A ON R.actor_id = A.id WHERE A.first_name='$firstnamePerQuery' AND A.last_name ='$lastnamePerQuery';");
+    $rows = $db->query("SELECT M.name, M.year 
+                                  FROM movies M JOIN roles R ON M.id = R.movie_id JOIN actors A ON R.actor_id = A.id 
+                                  WHERE A.first_name='$firstnamePerQuery' AND A.last_name ='$lastnamePerQuery';");
 
     printSearchAll();
 } catch (PDOException $ex) { ?>
@@ -30,7 +32,7 @@ function printSearchAll (){
     <table>
         <tr><td>#</td><td>Title:</td><td>Year</td></tr>
     <?php
-
+    global $rows;
     foreach ($rows as $row){
     $counter = 0;
         ?>
