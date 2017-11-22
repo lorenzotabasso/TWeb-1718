@@ -18,7 +18,7 @@ try {
 
     $query = "SELECT M.name, M.year 
               FROM movies M JOIN roles R ON M.id = R.movie_id JOIN actors A ON R.actor_id = A.id 
-              WHERE A.first_name='$firstnamePerQuery' AND A.last_name ='$lastnamePerQuery';";
+              WHERE A.first_name=$firstnamePerQuery AND A.last_name =$lastnamePerQuery;";
 
     $rows = $db->query($query);
 
