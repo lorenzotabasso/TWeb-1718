@@ -1,3 +1,5 @@
+<?php include("top.html"); ?>
+
 <?php
 /**
  * Authore: Lorenzo Tabasso, st159210, st159210@educ.di.unito.it
@@ -54,3 +56,6 @@ function printSearchAll (){
     </table>
     <?php
 }
+?>
+
+<?php include("bottom.html"); ?>
