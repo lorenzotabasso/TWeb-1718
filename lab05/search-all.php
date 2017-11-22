@@ -31,19 +31,19 @@ try {
 }
 
 function printSearchAll (){
+    global $rows;
     ?>
     <table>
         <tr><td>#</td><td>Title:</td><td>Year</td></tr>
-    <?php
-    global $rows;
-    $counter = 0;
-    foreach ($rows as $row){
-        ?>
-            <tr><td><?=$counter?></td><td><?=$row[0]?></td><td><?=$row[1]?></td></tr>
         <?php
-        $counter++;
-    }
-    ?>
+        $counter = 0;
+        foreach ($rows as $row){
+            ?>
+            <tr><td><?=$counter?></td><td><?=$row[0]?></td><td><?=$row[1]?></td></tr>
+            <?php
+            $counter++;
+        }
+        ?>
     </table>
     <?php
 }
