@@ -18,7 +18,8 @@ try {
 
     $query = "SELECT M.name, M.year 
               FROM movies M JOIN roles R ON M.id = R.movie_id JOIN actors A ON R.actor_id = A.id 
-              WHERE A.first_name=$firstnamePerQuery AND A.last_name =$lastnamePerQuery;";
+              WHERE A.first_name=$firstnamePerQuery AND A.last_name =$lastnamePerQuery
+              ORDER BY M.year DESC;";
 
     $rows = $db->query($query);
 
@@ -35,11 +36,12 @@ function printSearchAll (){
         <tr><td>#</td><td>Title:</td><td>Year</td></tr>
     <?php
     global $rows;
-    foreach ($rows as $row){
     $counter = 0;
+    foreach ($rows as $row){
         ?>
             <tr><td><?=$counter?></td><td><?=$row[0]?></td><td><?=$row[1]?></td></tr>
         <?php
+        $counter++;
     }
     ?>
     </table>
