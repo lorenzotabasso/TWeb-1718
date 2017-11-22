@@ -7,15 +7,19 @@
  */
 
 try {
-    # connect to world database on local server
+    # Connessione al database imdb_small su localhost
     $db = new PDO("mysql:dbname=imdb_small; host=localhost", "root", "root");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    # Campi per le funzioni della pagina.
     $firstname = $_REQUEST["firstname"];
-    $firstnamePerQuery = $db->quote($firstname);
     $lastname = $_REQUEST["lastname"];
+
+    # Campi per le funzioni del DB, "Puliscono" l'input per la query e lo inseriscono in una variabile.
+    $firstnamePerQuery = $db->quote($firstname);
     $lastnamePerQuery = $db->quote($lastname);
 
+    # Comando in SQL della query
     $query = "SELECT M.name, M.year 
               FROM movies M JOIN roles R ON M.id = R.movie_id JOIN actors A ON R.actor_id = A.id 
               WHERE A.first_name=$firstnamePerQuery AND A.last_name =$lastnamePerQuery
@@ -24,12 +28,15 @@ try {
     $rows = $db->query($query);
 
     printSearchAll();
-} catch (PDOException $ex) { ?>
+}
+catch (PDOException $ex) { ?>
     <p>Sorry, a database error occurred. Please try again later.</p>
     <p>(Error details: <?= $ex->getMessage() ?>)</p>
     <?php
 }
 
+# funzione che cerca in quali film l'attore è comparso.
+# Mostra i film sullo schermo nell'ordine specificato dalla query.
 function printSearchAll (){
     global $rows;
     ?>
