@@ -35,7 +35,7 @@ catch (PDOException $ex) { ?>
     <?php
 }
 
-# funzione che cerca in quali film l'attore è comparso.
+# Funzione che cerca in quali film l'attore è comparso.
 # Mostra i film sullo schermo nell'ordine specificato dalla query.
 function printSearchAll (){
     global $rows;
