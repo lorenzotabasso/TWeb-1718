@@ -32,20 +32,17 @@ require('include/nav.php');
   </div>
 </div>
 <div class="row">
-	<div class="col s12 m2 center-align cat">
+	<div class="col s12 m2 center-align cat float-left">
 		<div class="collection card">
 			<div id="loadCategories">
 			</div>
 		</div>
 	</div>
 </div>
-<div class="row" id="searched">	
+<div class="row float-left" id="searched">
 	<div id="loadProducts">
 	</div> 
 </div>
-   
-
-<a href="logout.php">Logout</a> <!-- logout -->
 
 </body>
 <?php

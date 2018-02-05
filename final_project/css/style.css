@@ -73,16 +73,16 @@
 }
 
 .navblack {
-  background: rgb(255, 251, 0);
+  background: #ffec2e;
 }
 
 .nav-wrapper-2 {
   padding-right: 40px;
-  background: rgb(255, 238, 0) !important;
+  background: #ffec2e !important;
 }
 
 .nav-wrapper-2 .brand {
-  background-image: url("../img/logo.svg");
+  background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -129,9 +129,10 @@
 }
 
 .home {
-  padding-top: 200px;
-  padding-bottom: 190px;
-  background: #494551;
+  height:110%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  background-color: #545557;
 }
 
 .home .search {
@@ -659,7 +660,7 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(meh.woff2) format("woff2");
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(meh.woff2) format("woff2"); /* needed for beautiful search bar */
 }
 
 .material-icons {
@@ -676,4 +677,130 @@
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+}
+
+/* Signin and Login ------------------------------------------------------- */
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  overflow:hidden;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.form-wrap {
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 77px 55px 33px 55px;
+  box-shadow: 2px 5px 35px grey;
+}
+
+#form-login, #form-signin{
+  width: 100%;
+}
+
+.form-title {
+  display: block;
+  font-size: 35px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.form-field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 37px;
+}
+
+.form-field > input {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px;
+}
+
+.form-field > label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.form-submit-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+}
+
+.form-submit-wrap {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.form-submit-button {
+  font-size: 15px;
+  background-color: #ffec2e;
+  color: #212121;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 40px;
+}
+
+.form-cancel-button {
+  font-size: 15px;
+  background-color: #ffec2e;
+  color: #212121;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+}
+
+#form-login-signup {
+  text-align: center;
+}
+
+#form-login-text-inside {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  color: #ffec2e;
+}
+
+button:hover {
+  cursor: pointer;
 }

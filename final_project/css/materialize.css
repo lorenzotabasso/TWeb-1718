@@ -4,11 +4,11 @@
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
 .materialize-red {
-  background-color: #e51c23 !important;
+  background-color: #ffec2e !important;
 }
 
 .materialize-red-text {
-  color: #e51c23 !important;
+  color: #ffec2e !important;
 }
 
 .materialize-red.lighten-5 {
@@ -2128,7 +2128,7 @@
 }
 
 .white-text {
-  color: #FFFFFF !important;
+  color: #000000 !important;
 }
 
 .transparent {

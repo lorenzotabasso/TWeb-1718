@@ -13,15 +13,14 @@ require('inc/functions.php');
 require ('include/header.php');
 require('include/nav.php');
  ?>
-
  
  <div class="container-fluid product-page">
    <div class="container current-page">
       <nav>
         <div class="nav-wrapper">
           <div class="col s12">
-            <a href="index" class="breadcrumb">Home</a>
-            <a href="cart" class="breadcrumb">Cart</a>
+            <a href="home.php" class="breadcrumb">Home</a>
+            <a href="cart.php" class="breadcrumb">Cart</a>
           </div>
         </div>
       </nav>
@@ -48,8 +47,5 @@ require('include/nav.php');
          Check out <i class="material-icons right">payment</i></button>
       </div>
    </div>
-   <a href="logout.php">Logout</a> <!-- logout -->
 
-   <?php
-    
-    require ('include/footer.php'); ?>
+<?php require ('include/footer.php'); ?>

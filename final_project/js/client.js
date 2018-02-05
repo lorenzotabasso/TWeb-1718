@@ -40,8 +40,6 @@ $(document).ready(function() {
             }
         })
     });
-
-
 	
 	cat();
 	product();
@@ -55,7 +53,7 @@ $(document).ready(function() {
 				$("#loadCategories").html(data);
 				
 			}
-		})
+		});
 	}
 	
 	function product(){
@@ -65,10 +63,9 @@ $(document).ready(function() {
 			data	:	{getProduct:1},
 			success	:	function(data){
 				var results = JSON.parse(data);
-					
 				showMatches(results);
 			}
-		})
+		});
 	}
 	
 	
@@ -85,38 +82,12 @@ $(document).ready(function() {
 			
 			data	:	{get_seleted_Category:1,cat_id:cid},
 			success	:	function(data){
-				
 				var results = JSON.parse(data);
-					
 				showMatches(results);
 			}
 		})
 	
 	});
-	
-	//cannot intercat with a new page
-	/* $("body").on("click","#loadClicked",function(event){
-		event.preventDefault();
-		
-		var pid = $(this).attr('pid');
-		window.location.href = "product.php?id=".concat(pid);
-		
-			$.ajax({
-			url		:	"action.php",
-			method	:	"POST",
-			dataType: "json",
-			
-			data	:	{load_clicked_product:1,p_id:pid},
-			success	:	function(data){
-				alert(data);
-				
-				
-				var results = JSON.parse(data);		
-				showProduct(results);
-			}
-		})
-	
-	}) */
 	
 	$("#search_btn").click(function(){
 		event.preventDefault();
