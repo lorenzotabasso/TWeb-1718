@@ -6,9 +6,9 @@ require('inc/functions.php');
 
 if (isset($_GET['id'])) {
    $id=$_GET['id'];
-   $idsess = $_SESSION['UserData'];
+   $sessionID = $_SESSION['UserData'];
 
-   $query_delete = $db->query("DELETE FROM command WHERE id_user = '$idsess' AND id_produit = '$id' AND statut != 'paid'");
+   $query_deleteProductInCart = $db->query("DELETE FROM command WHERE id_user = '$sessionID' AND id_produit = '$id' AND statut != 'paid'");
 
    $_SESSION['item'] -= 1;
 

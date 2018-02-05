@@ -31,9 +31,7 @@ if(isset($_POST["getProduct"])){
 		}
 	
 		echo json_encode($array);
-			
 	}
-	
 }
 
 
@@ -77,19 +75,18 @@ if(isset($_POST["get_seleted_Category"])|| isset($_POST["search"])){
 							OR category.name LIKE '%$keyword%'
 							ORDER BY id DESC"); 
 	}
-	
-	
-		$result = $query->fetchAll();
-		$array = array();
+
+	$result = $query->fetchAll();
+	$array = array();
 		
-		foreach($result as $key => $row) {
-			$array[$key]['id'] = $row['id']; 
-			$array[$key]['name'] = $row['name'];
-			$array[$key]['price'] = $row['price'];
-			$array[$key]['thumbnail'] = $row['thumbnail'];
-		}
+	foreach($result as $key => $row) {
+	    $array[$key]['id'] = $row['id'];
+	    $array[$key]['name'] = $row['name'];
+	    $array[$key]['price'] = $row['price'];
+	    $array[$key]['thumbnail'] = $row['thumbnail'];
+	}
 	
-		echo json_encode($array);
+	echo json_encode($array);
 }
 
 if (isset($_POST['addToProduct'])) {

@@ -63,7 +63,7 @@ $(document).ready(function() {
 			data	:	{getProduct:1},
 			success	:	function(data){
 				var results = JSON.parse(data);
-				showMatches(results);
+				loadMatches(results);
 			}
 		});
 	}
@@ -83,7 +83,7 @@ $(document).ready(function() {
 			data	:	{get_seleted_Category:1,cat_id:cid},
 			success	:	function(data){
 				var results = JSON.parse(data);
-				showMatches(results);
+				loadMatches(results);
 			}
 		})
 	
@@ -101,13 +101,13 @@ $(document).ready(function() {
 				
 				var results = JSON.parse(data);	
 				window.location.hash = "searched";
-				showMatches(results);
+				loadMatches(results);
 			}
 		})
 		}
 	});
 
-	cart_count();
+	cartCount();
 	
 	$("body").on("click",'#addToCart',function(event){
 		if(($('#icon_prefix').val()) === undefined ){
@@ -123,12 +123,12 @@ $(document).ready(function() {
 			data	:	{addToProduct:1,proId:p_id,quantity:qnt},
 			success	:	function(){
 				
-				cart_count();
+				cartCount();
 			}
 		})
 	});
 	
-	function cart_count(){
+	function cartCount(){
 		$.ajax({
 			url	:	"action.php",
 			method	:	"POST",
@@ -150,13 +150,13 @@ $(document).ready(function() {
 			success	:	function(data){
 				var results = JSON.parse(data);
 					
-				showCart(results);
+				loadCart(results);
 			}
 		})
 	}
 	
 	
-	function showCart(results){
+	function loadCart(results){
 		
 		var count = Object.keys(results).length;
 		
@@ -205,7 +205,7 @@ $(document).ready(function() {
 	
 	
 	
-	function showMatches(results){
+	function loadMatches(results){
 		
 		if(document.getElementById('loadProducts').firstChild){
 			while(document.getElementById('loadProducts').firstChild){
