@@ -1,0 +1,267 @@
+/* common css */
+
+/* ID e class implementati da me */
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #a0a1a3;
+}
+
+.form-wrap {
+    width: 390px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+}
+
+#form-login, #form-signin{ /* Necessario averne una copia (#form-signup) per il client.js */
+    width: 100%;
+}
+
+/*#form-signup { !* Necessario averne una copia (#form-login) per il client.js *!*/
+    /*width: 100%;*/
+/*}*/
+
+.form-title {
+    display: block;
+    font-size: 30px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.form-field {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+}
+
+.form-field > input {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.2;
+
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.form-field > label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-submit-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 13px;
+}
+
+.form-submit-wrap {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.form-submit-button {
+    font-size: 15px;
+    background-color: #4cae4c;
+    color: #fff4fb;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.form-cancel-button {
+    font-size: 15px;
+    background-color: #4cae4c;
+    color: #fff4fb;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+}
+
+#form-login-signup {
+    text-align: center;
+}
+
+#form-login-text-inside {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+button {
+    border: none;
+    color: #4cae4c;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* NAVBAR --------------------------*/
+
+#navbar {
+    color: #ffffff;
+    background-color: #1b6d85;
+    overflow: hidden;
+}
+
+#navbar-left {
+    height: 39px;
+    float: left;
+    width: auto;
+}
+
+#navbar-right {
+    height: 39px;
+    float: right;
+    width: auto;
+}
+
+/* PRODUCTS ------------------- */
+
+#products_area {
+    width: 100%;
+    height: 60px;
+    padding-top: 5px;
+    position: relative;
+}
+
+#products_area > a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#products_area a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#products {
+    max-width: 1080px;
+}
+
+#product-box {
+    float: left;
+    width: 33%;
+    height: 20%;
+    overflow: hidden;
+}
+
+#product-box:hover {
+    cursor: pointer;
+}
+
+#product-area-image {
+
+}
+
+#product-image {
+    height: auto;
+    width: auto;
+}
+
+#product-name {
+
+}
+
+#product-price {
+
+}
+
+
+
+/* ************************************************** */
+
+body {
+  background-color: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.modal-content, .form-control, .btn{
+  border-radius: 3px;
+}
+label{
+  font-weight: 400;
+  font-size: 16px;
+}
+.form-control{
+  height: 42px;
+  font-size: 17px;
+}
+.form-control:focus {
+  z-index: 2;
+}
+.alert{
+    border-radius: 3px;
+}
+/* login form css */
+#login-form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+#login-form .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#login-form input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#login-form input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#display_error{
+	display: none;
+}
+
+
