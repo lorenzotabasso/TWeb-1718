@@ -804,3 +804,7 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+#display_error {
+  color: #ff1e1e;
+}

@@ -1,70 +1,198 @@
-DROP TABLE IF EXISTS USERS;
-create table USERS(
- ID_user INTEGER NOT NULL AUTO_INCREMENT,
- Name VARCHAR(100) NOT NULL,
- Surname VARCHAR(100) NOT NULL,
- Email VARCHAR(254) NOT NULL,
- Password VARCHAR(30) NOT NULL,
- 
- CONSTRAINT ID_user_pk PRIMARY KEY(ID_user)
-);
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Creato il: Feb 05, 2018 alle 16:50
+-- Versione del server: 5.6.35
+-- Versione PHP: 7.1.8
 
-CREATE UNIQUE INDEX Email_user
-ON USERS (Email);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-DROP TABLE IF EXISTS ORDERS;
-create table ORDERS(
-	ID_order INTEGER NOT NULL AUTO_INCREMENT,
-	ID_user_order INTEGER NOT NULL,
-	timestamp TIMESTAMP,
-	CONSTRAINT ID_order_pk PRIMARY KEY(ID_order),
-	CONSTRAINT ID_user_order_fk FOREIGN KEY(ID_user_order) REFERENCES USERS(ID_user) ON DELETE CASCADE ON UPDATE CASCADE
-);
+--
+-- Database: `kinon`
+--
 
-DROP TABLE IF EXISTS CATEGORY;
-create table CATEGORY(
-	ID_category INTEGER NOT NULL AUTO_INCREMENT,
-	Name VARCHAR(100) NOT NULL,
-	Description TEXT NOT NULL,
-	Picture BLOB NOT NULL,
-	
-	CONSTRAINT ID_category_pk PRIMARY KEY(ID_category)
-);
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS PRODUCTS;
-create table PRODUCTS(
-	ID_product INTEGER NOT NULL AUTO_INCREMENT,
-	ID_category_products INTEGER NOT NULL,
-	Name VARCHAR(100) NOT NULL,
-	Description TEXT NOT NULL,
-	Picture BLOB NOT NULL,
-	Available BOOLEAN DEFAULT TRUE NOT NULL,
-	Price FLOAT NOT NULL,
-	
-	CONSTRAINT ID_product_pk PRIMARY KEY(ID_product),
-	CONSTRAINT ID_category_products_fk FOREIGN KEY (ID_category_products) REFERENCES CATEGORY (ID_category) ON DELETE NO ACTION ON UPDATE CASCADE
-);
+--
+-- Struttura della tabella `category`
+--
 
-DROP TABLE IF EXISTS ORDERS_DETAILS;
-create table ORDERS_DETAILS(
-	ID_details INTEGER NOT NULL AUTO_INCREMENT,
-	ID_order_details INTEGER NOT NULL,
-	ID_product_details INTEGER NOT NULL,
-	Price FLOAT NOT NULL,
-	Quantity INTEGER NOT NULL,
-	Total FLOAT NOT NULL,
-	
-	CONSTRAINT ID_details_pk PRIMARY KEY (ID_details),
-	CONSTRAINT ID_order_details_fk FOREIGN KEY(ID_order_details) REFERENCES ORDERS (ID_order) ON DELETE CASCADE ON UPDATE CASCADE,
-	CONSTRAINT ID_product_details_fk FOREIGN KEY(ID_product_details) REFERENCES PRODUCTS (ID_product) ON DELETE CASCADE ON UPDATE CASCADE
-);
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(1000) NOT NULL,
+  `icon` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO CATEGORY (ID_category, Name, Description, Picture) VALUES (NULL, 'Other', 'Other object that we sell', NULL),
-INSERT INTO CATEGORY (ID_category, Name, Description, Picture) VALUES (NULL, 'Laptop', 'Some Laptop that we sell',NULL);
-INSERT INTO CATEGORY (ID_category, Name, Description, Picture) VALUES (NULL, 'Smartphone', 'Some Smartphone that we sell',NULL);
+--
+-- Dump dei dati per la tabella `category`
+--
 
-INSERT INTO PRODUCTS (ID_product, ID_category_products, Name, Description, Picture, Available, Price) VALUES (NULL, 1, 'Vacuum Cleaner', 'a Vacuum cleaner', NULL , 1, 50);
-INSERT INTO PRODUCTS (ID_product, ID_category_products, Name, Description, Picture, Available, Price) VALUES (NULL, 1, 'Bluetooth Speaker', 'a Bluetooth Speaker', NULL, 1, 80);
-INSERT INTO PRODUCTS (ID_product, ID_category_products, Name, Description, Picture, Available, Price) VALUES (NULL, 1, 'Philips Hue', 'a Philips Hue bulb', NULL, 1, 75);
-INSERT INTO PRODUCTS (ID_product, ID_category_products, Name, Description, Picture, Available, Price) VALUES (NULL, 3, 'iPhone X', 'an iPhone X', NULL, 1, 700);
-INSERT INTO PRODUCTS (ID_product, ID_category_products, Name, Description, Picture, Available, Price) VALUES (NULL, 1, 'Indiana J. Hat', 'the original hat of Indiana Jones', NULL, 1, 15);
+INSERT INTO `category` (`id`, `name`, `icon`) VALUES
+(7, 'DSLRs', ''),
+(8, 'Lenses', ''),
+(9, 'Tripods', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `command`
+--
+
+CREATE TABLE `command` (
+  `id` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `statut` varchar(1000) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `pictures`
+--
+
+CREATE TABLE `pictures` (
+  `id` int(11) NOT NULL,
+  `picture` varchar(1000) NOT NULL,
+  `id_produit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `pictures`
+--
+
+INSERT INTO `pictures` (`id`, `picture`, `id_produit`) VALUES
+(46, 'nikonD5.png', 18),
+(47, 'nikond750.png', 19),
+(48, 'nikond3200.png', 20),
+(49, 'nikond7200.png', 21),
+(50, 'nikkor35.png', 22),
+(51, 'nikkor18105.png', 23),
+(52, 'nikkor55300.png', 24),
+(53, 'manfrotto90go.png', 25),
+(54, 'manfrotto502.png', 26),
+(55, 'manfrotto509.png', 27);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `id_category` int(11) NOT NULL,
+  `name` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `price` int(11) NOT NULL,
+  `id_picture` int(11) NOT NULL,
+  `thumbnail` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `product`
+--
+
+INSERT INTO `product` (`id`, `id_category`, `name`, `description`, `price`, `id_picture`, `thumbnail`) VALUES
+(18, 7, 'Nikon D5', 'The Profesional Nikon D5', 2000, 46, 'nikonD5.png'),
+(19, 7, 'Nikon D750', 'The profesional Nikon D750', 1800, 47, 'nikond750.png'),
+(20, 7, 'Nikon D3200', 'The entry-level Nikon D3200', 600, 48, 'nikond3200.png'),
+(21, 7, 'Nikon D7200', 'The intermediate-level Nikon D7200', 1000, 49, 'nikond7200.png'),
+(22, 8, 'Nikon 35mm', 'The Nikon 35mm', 200, 50, 'nikkor35.png'),
+(23, 8, 'Nikkor 18-105mm', 'The 18-105mm lens', 150, 51, 'nikkor18105.png'),
+(24, 8, 'Nikkor 55-300mm', 'The nikkor 55-300 lens', 300, 52, 'nikkor55300.png'),
+(25, 9, 'Manfrotto 90 GO', 'The manfrotto 90 GO tripod', 200, 53, 'manfrotto90go.png'),
+(26, 9, 'Manfrotto 502 Tripod', 'The Manfrotto 502 tripod', 300, 54, 'manfrotto502.png'),
+(27, 9, 'Manfrotto 509 tripod', 'The Manfrotto 509 tripod set', 400, 55, 'manfrotto509.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `firstname` varchar(1000) NOT NULL,
+  `lastname` varchar(1000) NOT NULL,
+  `password` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `password`) VALUES
+(12, 'a@a.it', 'Lorenzo', 'Tabasso', 'a'),
+(13, 'b@a.it', 'Andrea', 'Malgaroli', 'b'),
+(14, 'c@a.it', 'Mauro', 'Tabasso', 'ccccccc');
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `command`
+--
+ALTER TABLE `command`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `pictures`
+--
+ALTER TABLE `pictures`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT per la tabella `command`
+--
+ALTER TABLE `command`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT per la tabella `pictures`
+--
+ALTER TABLE `pictures`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT per la tabella `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT per la tabella `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;

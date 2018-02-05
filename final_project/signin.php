@@ -12,15 +12,15 @@ require('include/header.php');
                 <span class="form-title">Registration form</span>
 
                 <div class="form-field">
-                    <label for="Name">Name</label>
+                    <label for="signin-name">Name</label>
                     <input type="text" name="Name" id="signin-name" class="form-control" required pattern=".{1,100}" autofocus>
                 </div>
                 <div class="form-field">
-                    <label for="Surname">Surname</label>
+                    <label for="signin-surname">Surname</label>
                     <input type="text" name="Surname" id="signin-surname" class="form-control" required pattern=".{1,100}" autofocus>
                 </div>
                 <div class="form-field">
-                    <label for="email">Email address</label>
+                    <label for="signin-email">Email address</label>
                     <input type="email" name="Email" id="signin-email" class="form-control" required>
                 </div>
                 <div class="form-field">
