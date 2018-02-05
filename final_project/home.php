@@ -14,7 +14,6 @@ require('include/header.php');
 require('include/nav.php');
 ?>
 
-<!-- TODO: da implementare qui: caricamento contenuti, carrello, stile (html) -->
 <body>
 <div class="container-fluid home" id="top">
   <div class="container search">

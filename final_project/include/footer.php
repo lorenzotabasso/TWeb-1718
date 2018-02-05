@@ -36,7 +36,7 @@
                     }
                   }
                 });
-              <!-- //SMOOTH SCROLL -->
+              <!-- SMOOTH SCROLL -->
 
 $(document).ready(function() {
   $('select').material_select();
@@ -47,19 +47,6 @@ $(document).ready(function(){
   });
 
 new WOW().init();
-
-
-$(function(){
-     $(".searching").typed({
-       strings: ["Gopro hero 5",
-       "Apple watch",
-       "DJI Mavic Pro",
-      "MSI GP 62",
-     "Macbook pro retina 2015",
-    "Google Pixel XL",],
-       typeSpeed: -8
-     });
- });
 
 
   $('.searching').on('click', function(e){

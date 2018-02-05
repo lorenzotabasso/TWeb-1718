@@ -8,9 +8,7 @@ if(isset($_POST["category"])){
 		while($result = $query->fetch(PDO::FETCH_ASSOC)){
 			$id_categorydb = $result['id'];
             $name_category = $result['name'];
-			echo "
-					<a href='#' class='collection-item ' cid='$id_categorydb'>$name_category</a>
-			";
+			echo "<a href='#' class='collection-item ' cid='$id_categorydb'>$name_category</a>";
 		}
 		
 	}
@@ -18,13 +16,7 @@ if(isset($_POST["category"])){
 
 if(isset($_POST["getProduct"])){
 	
-	$query = $db->query("SELECT
-
-		id,name,price,thumbnail
-
-		FROM product 
-		WHERE product.id_category = '1'
-		ORDER BY product.name DESC LIMIT 6");
+	$query = $db->query("SELECT id,name,price,thumbnail FROM product WHERE product.id_category = '1' ORDER BY product.name DESC LIMIT 6");
 	
     if ($query->rowCount() > 0) {
 		
@@ -99,63 +91,27 @@ if(isset($_POST["get_seleted_Category"])|| isset($_POST["search"])){
 	
 		echo json_encode($array);
 }
-	/*
-	
-		we need to create this DOM
-		
-			echo "
-				<div class='col s12 m4'>
-					<div class='card hoverable animated slideInUp wow'>
-						<div class='card-image'>
-						  <a href='product.php?id=$id_best'><img src='products/$thumbnail_best'></a>
-						  <span class='card-title red-text'>$name_best</span>
-						  <a href='product.php?id=$id_best' class='btn-floating red halfway-fab waves-effect waves-light right'><i class='material-icons'>add</i></a>
-						</div>
-						  <div class='card-content'>
-							<div class='container'>
-							  <div class='row'>
-								<div class='col s6'>
-								  <p class='white-text'><i class='left fa fa-dollar'></i>$price_best</p>
-								</div>
-								<div class='col s6'>
-								  <p class='white-text'><i class='left fa fa-shopping-basket'></i>$totalsold</p>
-								</div>
-							  </div>
-							</div>
 
-						  </div>
-					</div>
-				</div>
-			  ";
-	} 
-	*/
+if (isset($_POST['addToProduct'])) {
 
-	if (isset($_POST['addToProduct'])) {
+    $quantity = $_POST["quantity"];
 		
-		$quantity = $_POST["quantity"];
-		
-		$p_id = $_POST["proId"];
-		if(isset($_SESSION['UserData'])){
-			$user_id = $_SESSION['UserData'];
-			//inserting into command
-				  
+    $p_id = $_POST["proId"];
+    if(isset($_SESSION['UserData'])){
+        $user_id = $_SESSION['UserData'];
+        //inserting into command
 
-			$querybuy = $db->query("INSERT INTO command(id_produit, quantity, statut, id_user)
-			VALUES ('$p_id','$quantity ','ordered', '$user_id')");
-			$_SESSION['item'] += 1;
-			
-		}
-		
-	}
-	
-	
-	
-	if(isset($_POST["cart_count"]) AND isset($_SESSION["UserData"])){
-	$uid = $_SESSION["UserData"];
-	$sql = $db->query("SELECT * FROM command WHERE id_user = '$uid' AND statut != 'paid'");
-	$rowN = $sql->rowCount();
-	
-	echo json_encode($rowN);
-	}
+        $querybuy = $db->query("INSERT INTO command(id_produit, quantity, statut, id_user) VALUES ('$p_id','$quantity ','ordered', '$user_id')");
+        $_SESSION['item'] += 1;
+    }
+}
+
+if(isset($_POST["cart_count"]) AND isset($_SESSION["UserData"])){
+    $uid = $_SESSION["UserData"];
+    $sql = $db->query("SELECT * FROM command WHERE id_user = '$uid' AND statut != 'paid'");
+    $rowN = $sql->rowCount();
+
+    echo json_encode($rowN);
+}
 
 ?>
