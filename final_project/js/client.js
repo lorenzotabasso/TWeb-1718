@@ -98,7 +98,6 @@ $(document).ready(function() {
 			method	:	"POST",
 			data	:	{search:1,keyword:keyword},
 			success	:	function(data){ 
-				
 				var results = JSON.parse(data);	
 				window.location.hash = "searched";
 				loadMatches(results);
@@ -122,7 +121,6 @@ $(document).ready(function() {
 			method	:	"POST",
 			data	:	{addToProduct:1,proId:p_id,quantity:qnt},
 			success	:	function(){
-				
 				cartCount();
 			}
 		})
@@ -134,7 +132,6 @@ $(document).ready(function() {
 			method	:	"POST",
 			data	:	{cart_count:1},
 			success	:	function(data){
-				
 				$("#itemNumber").html(data);
 			}
 		})
