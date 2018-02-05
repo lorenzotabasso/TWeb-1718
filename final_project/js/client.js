@@ -41,10 +41,10 @@ $(document).ready(function() {
         })
     });
 	
-	cat();
+	category();
 	product();
 
-	function cat(){
+	function category(){
 		$.ajax({
 			url	:	"action.php",
 			method:	"POST",
