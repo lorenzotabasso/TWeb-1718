@@ -19,6 +19,7 @@
     <script src="js/wow.min.js"></script> <!-- wow js-->
     <script src="js/materialize.min.js"></script> <!-- Materialize Js -->
     <script src="js/bootstrap.min.js" ></script> <!-- Load bootstrap js -->
+    <script type="text/javascript" src="js/smoothscript.js"></script> <!-- js for smooth scroll-->
     <script type="text/javascript" src="js/client.js"></script> <!-- Load custom js -->
 
 </head>
