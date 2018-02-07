@@ -35,7 +35,7 @@ if(isset($_POST["getProduct"])){
 	}
 }
 
-
+# pupulate the cart DOM
 if(isset($_POST["getCart"])){
 	$queryproduct = $db->query("SELECT product.name as 'name',
           product.id as 'id', product.price as 'price',
@@ -61,8 +61,9 @@ if(isset($_POST["getCart"])){
 	}
 }
 
-
-if(isset($_POST["get_seleted_Category"])|| isset($_POST["search"])){
+# if a category is selected, displays all the product inside that category
+# otherwise, if the searchbar is not empty, it research all the product related to the keyword and it displays those
+if(isset($_POST["get_seleted_Category"]) || isset($_POST["search"])){
 	if(isset($_POST["get_seleted_Category"])){
 		$id = $_POST["cat_id"];
 		$query = $db->query( "SELECT * FROM product WHERE product.id_category = '$id'");
@@ -90,17 +91,17 @@ if(isset($_POST["get_seleted_Category"])|| isset($_POST["search"])){
 	echo json_encode($array);
 }
 
+# insert order in the DB
 if (isset($_POST['addToProduct'])) {
-
     $quantity = $_POST["quantity"];
-		
     $p_id = $_POST["proId"];
+
     if(isset($_SESSION['UserData'])){
         $user_id = $_SESSION['UserData'];
-        //inserting into command
 
+        #inserting order into command
         $querybuy = $db->query("INSERT INTO command(id_produit, quantity, statut, id_user) VALUES ('$p_id','$quantity ','ordered', '$user_id')");
-        $_SESSION['item'] += 1;
+        $_SESSION['item'] += 1; # aument the number of order
     }
 }
 

@@ -22,22 +22,25 @@ $id_product =$_GET['id'];
      <div class="col s12 m6">
         <div class="card">
           <div class="card-image">
-            <?php
-			
-            
 
-            //get products
-            $query = $db->query("SELECT id, name, price, description, id_picture, thumbnail
-              FROM product WHERE id = '{$id_product}'");
-            if ($query->rowCount() > 0) {
-            // output data of each row
-            while($result = $query->fetch(PDO::FETCH_ASSOC)) {
-              $id_productdb = $result['id'];
-              $name_product = $result['name'];
-              $price_product = $result['price'];
-              $id_pic = $result['id_picture'];
-              $description = $result['description'];
-              $thumbnail_product = $result['thumbnail']; }}?>
+              <?php
+
+              //get product
+              $query = $db->query("SELECT id, name, price, description, id_picture, thumbnail FROM product WHERE id = '{$id_product}'");
+
+              if ($query->rowCount() > 0) { // output data of each row
+                  while($result = $query->fetch(PDO::FETCH_ASSOC)) {
+                      $id_productdb = $result['id'];
+                      $name_product = $result['name'];
+                      $price_product = $result['price'];
+                      $id_pic = $result['id_picture'];
+                      $description = $result['description'];
+                      $thumbnail_product = $result['thumbnail'];
+                  }
+              }
+
+              ?>
+
             <img class="materialboxed" width="650" src="products/<?= $thumbnail_product; ?>" alt="">
           </div>
         </div>
