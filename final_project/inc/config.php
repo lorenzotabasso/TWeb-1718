@@ -1,12 +1,5 @@
 <?php
-
-# Session
-if(!isset($_SESSION)){
-    session_start();
-} else {
-    session_unset();
-    session_destroy();
-}
+session_start(); # Session
 
 # Check connection
 try {
@@ -16,5 +9,3 @@ try {
     echo "config.php: Error with the DB, details below: ";
     $exception->getMessage();
 }
-
-?>

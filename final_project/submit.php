@@ -17,7 +17,7 @@ if(!empty($_POST)){
     $email = $_POST['Email'];
     $password = $_POST['Password'];
 
-    /* Server side PHP input validation */
+    # Server side PHP input validation
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $toReturn['error'] = "Please enter a valid Email address.";
     } else if($password === '') {
@@ -45,6 +45,7 @@ if(!empty($_POST)){
     output($toReturn);
 }
 
+# Check if Signin form is submitted
 if(!empty($_POST) && isset($_POST['Name']) && isset($_POST['Surname'])) {
 
     # Define return variable. for further details see "output" function in functions.php

@@ -1,11 +1,7 @@
-<!-- The file is needed,error if not found -->
 <?php
-if(!isset($_SESSION)){
-    session_start();
-} else {
-    session_unset();
-    session_destroy();
-}
+session_start();
+session_unset();
+session_destroy();
 require('include/header.php');
 ?>
 
