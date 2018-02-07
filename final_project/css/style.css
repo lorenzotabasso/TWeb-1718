@@ -660,7 +660,7 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(meh.woff2) format("woff2"); /* needed for beautiful search bar */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(meh.woff2) format("woff2");
 }
 
 .material-icons {
