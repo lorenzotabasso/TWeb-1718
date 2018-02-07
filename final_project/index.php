@@ -1,8 +1,11 @@
 <!-- The file is needed,error if not found -->
 <?php
-session_start();
-session_unset(); 
-session_destroy();
+if(!isset($_SESSION)){
+    session_start();
+} else {
+    session_unset();
+    session_destroy();
+}
 require('include/header.php');
 ?>
 
@@ -15,15 +18,15 @@ require('include/header.php');
                 <span class="form-title">Login</span>
 
                 <div class="form-field">
-                    <!--<label for="Email">Email address</label>-->
                     <input type="email" name="Email" id="login-email" placeholder="Email address" required autofocus autocomplete="on">
                 </div>
 
                 <div class="form-field">
-                    <!--<label for="Password" >Password</label>-->
                     <input type="password" name="Password" id="login-password" placeholder="Password">
                 </div>
-				<div id="display_error" class="alert alert-danger "></div>
+
+				<div id="display_error"</div> <!-- for displaying login errors -->
+
                 <div class="form-submit-container">
                     <div class="form-submit-wrap">
                         <button class="form-submit-button" type="submit">Login</button>
@@ -31,7 +34,7 @@ require('include/header.php');
                 </div>
 
                 <div id="form-login-signup">
-                    <span id="form-login-text-inside">Non hai un account? <a href="signin.php">Registrati</a> </span>
+                    <span id="form-login-text-inside">Don't have an account? <a href="signin.php">Signup</a> </span>
                 </div>
             </form>
         </div>

@@ -1,5 +1,12 @@
 <?php
-session_start(); # Session
+
+# Session
+if(!isset($_SESSION)){
+    session_start();
+} else {
+    session_unset();
+    session_destroy();
+}
 
 # Check connection
 try {

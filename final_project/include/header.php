@@ -6,11 +6,12 @@
     <title>Kinon Store</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- font-awesome -->
+    <!--<link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- font-awesome -->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> <!--Import materialize.css-->
     <link rel="stylesheet" href="css/animate.css-master/animate.min.css"> <!-- animate css -->
     <link rel='stylesheet' href='css/nprogress.css'/> <!-- Progress bar -->
     <link type="text/css" rel="stylesheet" href="css/style.css" /> <!-- My own style -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" /> <!-- bootstrap css -->
 
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery -->
