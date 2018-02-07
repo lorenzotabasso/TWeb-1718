@@ -5,7 +5,7 @@ if((empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     exit("Unauthorized Acces");
 }
 
-require('inc/config.php');
+require('inc/config.php'); # needed for DB connection
 require('inc/functions.php');
 
 # Check if Login form is submitted
@@ -30,7 +30,7 @@ if(!empty($_POST)){
     # Checking Email and Password existence in DB
 
     # Selecting the email address of the user with the correct login credentials.
-    $query_checkEmail = $db->query("SELECT Email,id FROM USERS WHERE Email='$email' AND Password='$password'");
+    $query_checkEmail = $db->query("SELECT email,id FROM users WHERE Email='$email' AND Password='$password'");
     $result = $query_checkEmail->fetch(PDO::FETCH_ASSOC);
 
     if($query_checkEmail->rowCount() == 1) {
