@@ -1,5 +1,8 @@
 <?php
-session_start(); # Session
+
+if(!isset($_SESSION)){
+    session_start();
+}
 
 # Check connection
 try {

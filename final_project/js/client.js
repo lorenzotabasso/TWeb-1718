@@ -127,7 +127,7 @@ $(document).ready(function() {
 			data	:	{addToProduct:1,proId:p_id,quantity:qnt},
 			success	:	function(){
 				cartCount();
-                window.location.href = "cart.php"; // load the cart page
+                //window.location.href = "cart.php"; // load the cart page
 			}
 		})
 	});

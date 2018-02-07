@@ -2,7 +2,7 @@
 require('inc/config.php');
 require('inc/functions.php');
 
-/*Check for authentication otherwise user will be redirects to index.php page.*/
+# Check for authentication otherwise user will be redirects to index.php page.
 if (!isset($_SESSION['UserData'])) {
     header("location:index.php");
     exit("Error, redirectering to login!");

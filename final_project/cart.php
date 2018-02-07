@@ -1,14 +1,12 @@
 <?php
-session_start();
+
+require('inc/config.php');
+require('inc/functions.php');
 
 if (!isset($_SESSION['UserData'])) {
     header("location:index.php");
     exit("Error, redirectering to login!");
 }
-
-
-require('inc/config.php');
-require('inc/functions.php');
 
 require ('include/header.php');
 require('include/nav.php');
