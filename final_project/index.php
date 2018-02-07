@@ -26,7 +26,7 @@ require('include/header.php');
                     <input type="password" name="Password" id="login-password" placeholder="Password">
                 </div>
 
-				<div id="display-error"></div> <!-- for displaying login errors -->
+				<div id="display_error"></div> <!-- for displaying login errors -->
 
                 <div class="form-submit-container">
                     <div class="form-submit-wrap">
