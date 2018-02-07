@@ -1,6 +1,4 @@
 <?php
-
-/*PHP Login and registration script */
 require('inc/config.php');
 require('inc/functions.php');
 

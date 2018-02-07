@@ -1,6 +1,7 @@
 <?php
 require('inc/config.php');
 
+# populate the DOM of the home with all the categories
 if(isset($_POST["category"])){
 	$query = $db->query("SELECT id, name FROM category");
 	
@@ -10,13 +11,13 @@ if(isset($_POST["category"])){
             $name_category = $result['name'];
 			echo "<a href='#' class='collection-item ' cid='$id_categorydb'>$name_category</a>";
 		}
-		
 	}
 }
 
+# populate the DOM of the home with all the product
 if(isset($_POST["getProduct"])){
 	
-	$query = $db->query("SELECT id,name,price,thumbnail FROM product WHERE product.id_category = '1' ORDER BY product.name DESC LIMIT 6");
+	$query = $db->query("SELECT id,name,price,thumbnail FROM product ORDER BY product.id_category");
 	
     if ($query->rowCount() > 0) {
 		

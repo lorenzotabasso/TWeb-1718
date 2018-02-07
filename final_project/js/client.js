@@ -36,7 +36,7 @@ $(document).ready(function() {
             },
             cache: false,
             success: function() {
-                window.location.href = "home.php"; // load the login page
+                window.location.href = "index.php"; // load the login page
             }
         })
     });

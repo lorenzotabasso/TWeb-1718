@@ -69,14 +69,14 @@ if(!empty($_POST) && isset($_POST['Name']) && isset($_POST['Surname'])) {
     }
 
     # Check Email existence in DB
-    $result = $db->query("SELECT Email FROM USERS WHERE firstname='$name' AND lastname='$surname' AND email='$email'");
-    if($result->rowCount() == 1){
+    $result = $db->query("SELECT email FROM users WHERE email='$email'");
+    if($result->rowCount() >= 1){
         # Email already exists: Set error message
         $toReturn['error'] = 'You have already registered with us, please login.';
     }else{
         # Insert the new user data inside the DB
         try{
-            $result = $db->query("INSERT INTO USERS (id,email,firstname,lastname,password) VALUES (NULL, '$email', '$name', '$surname', '$password')");
+            $result = $db->query("INSERT INTO users (id,email,firstname,lastname,password) VALUES (NULL, '$email', '$name', '$surname', '$password')");
         }
         catch (PDOException $e) {
             echo $e->getMessage();

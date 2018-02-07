@@ -27,9 +27,8 @@ require('include/header.php');
                     <label for="Password">New password</label>
                     <input type="password" name="Password" id="signin-password" placeholder="At least 6 characters" class="form-control">
                 </div>
-                <div id="display-error" class="alert alert-danger fade in"></div><!-- Display Error Container -->
 
-
+                <div id="display_error"></div><!-- Display Error Container --> <!-- TODO: RIMETTERE A POSTO IL DIV-->
 
                 <div class="form-submit-container">
                     <div class="form-submit-wrap">
